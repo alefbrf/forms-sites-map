@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/favicon.png" type="image/png">
+    <title>Forms</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!--
+    <div class="galaxy">
+        <div class="stars1"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>-->
+    <audio id="audio1" style="display: none;"><source src="./audios/silence.mp3" type="audio/mp3"></audio>
+    <audio id="audio2" style="display: none;"><source src="./audios/01.mp3" type="audio/mp3"></audio>
+    <audio id="audio3" style="display: none;"><source src="./audios/02.mp3" type="audio/mp3"></audio>
+    <audio id="audio4" style="display: none;"><source src="./audios/03.mp3" type="audio/mp3"></audio>
+    <audio id="audio5" style="display: none;"><source src="./audios/04.mp3" type="audio/mp3"></audio>
+    <audio id="audio6" style="display: none;"><source src="./audios/05.mp3" type="audio/mp3"></audio>
+    <audio id="audioagradecimento" style="display: none;"><source src="./audios/06.mp3" type="audio/mp3"></audio>
+    
+
+    <canvas id="canvas" width="100%" height="100%"></canvas>
+    <div class="container">
+        <form id="forms">
+          <div class="formulario form-step-active" style="padding-bottom:20px;">
+            <span><h2>Dê o primeiro passo<br> para o sucesso.</h2></span><br>
+            <span><h2>Podemos começar?</h2></span>
+          </div>
+          <div class="formulario">
+           <span><h2>Bem-Vindo</h2></span>
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Nome Completo" id="nome">
+            <label for="email">E-mail</label>
+            <input type="text" placeholder="exemplo@mail.com" id="email">
+            <label for="phone">Telefone</label>
+            <input type="text" placeholder="(XX) XXXXX-XXXX" id="phone" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" >
+            <label for="empresa">Nome da empresa/negócio</label>
+            <input type="text" placeholder="Nome da empresa/negócio" id="empresa">
+          </div>
+          <div class="formulario">
+            <label for="product/service">Descreva o seu produto e/ou serviço prestados pela sua empresa:</label>
+            <textarea placeholder="Serviço/Produto" id="product/service" onkeyup="adjustHeight(this)"></textarea>
+          </div>
+          <div class="formulario">
+            <label for="public">Descreva seu público alvo:</label>
+            <textarea placeholder="Público Alvo" id="public" onkeyup="adjustHeight(this)"></textarea>
+          </div>
+          <div class="formulario">
+            <label for="concorrentes">Quais são seus principais concorrentes?</label>
+            <textarea placeholder="Concorrentes" id="concorrentes" onkeyup="adjustHeight(this)"></textarea>
+          </div>
+          <div class="formulario">
+            <Label>Você já possui uma logo marca?</Label><br>
+            <label class="container1">Sim
+              <input type="radio"  value="Sim" name="logo">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container1">Não
+              <input type="radio" value="Não" name="logo">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="formulario">
+            <Label>Selecione três cores que você gostaria de utilizar em seu site:</Label>
+            <span class="cores">
+            <span>Cor 1</span>
+            <div class="cp_wrapper">
+            <input type="color" id="cor-1" value="#1100ff">
+            </div>
+            </span>
+            <span class="cores">
+            <span>Cor 2</span>
+            <div class="cp_wrapper">
+            <input type="color" id="cor-2" value="#e1ff00">
+            </div>
+            </span>
+            <span class="cores">
+            <span>Cor 3</span>
+            <div class="cp_wrapper">
+            <input type="color" id="cor-3" value="#ffffff">
+            </div>
+            </span>
+          </div>
+          <div class="formulario">
+            <Label>Quais as características você deseja ter em seu site:</Label><br><br>
+            <label class="container1">Portal
+              <input type="checkbox" value="Portal" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Vendas
+              <input type="checkbox" value="Vendas" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Marketing
+              <input type="checkbox" value="Marketing" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Corporativo
+              <input type="checkbox" value="Corporativo" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Fotografia
+              <input type="checkbox" value="Fotografia" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Eventos
+              <input type="checkbox" value="Eventos" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Outros
+              <input type="checkbox" value="Outros" name="caracteristicas">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="formulario">
+            <Label>Características dos designs do visual de seu site:</Label><br><br>
+            <label class="container1">Clean
+              <input type="checkbox" value="Clean" name="designs">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Colorido
+              <input type="checkbox" value="Colorido" name="designs">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Corporativo
+              <input type="checkbox" value="Corporativo" name="designs">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Moderno
+              <input type="checkbox" value="Moderno" name="designs">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Popular
+              <input type="checkbox" value="Popular" name="designs">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Outros
+              <input type="checkbox" value="Outros" name="designs">
+              <span class="checkmark"></span>
+            </label><br>
+            <button id="button" value="Enviar" class="btn">Enviar</button>
+          </div><br>
+      
+    <div id="progress-bar">
+    <span class="step active"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+      </div>  </form>
+      <div class="botoes">
+      <button id="progress-prev" class="btn" style="visibility: hidden;" >Voltar</button>
+      <button id="progress-next" class="btn">Próximo</button>
+      </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js" type="text/javascript"></script>
+<script src="/js/main.js"></script>
+</html>
